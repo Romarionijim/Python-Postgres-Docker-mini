@@ -30,4 +30,11 @@ print("\nProducts:")
 for row in products_rows:
     print(row)
 
+cur.execute("SELECT users.user_id, orders.user_id FROM users JOIN orders on users.user_id = orders.user_id")
+users_join_orders = cur.fetchall()
+print(f'result of joinin the two tables are {users_join_orders}')
+
+
+conn.commit()
+
 conn.close()
